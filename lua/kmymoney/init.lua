@@ -1,15 +1,13 @@
 local M = {}
 
-function M.setup(opts)
-  opts = opts or {}
-
-  vim.keymap.set("n", "<Leader>h", function()
-    if opts.name then 
-      print("Hello, " .. opts.name)
-    else
-      print("Hello")
-    end
-  end)
+function M.decompress()
+	vim.cmd("silent '[,']w! /tmp/foo")
+	os.execute("gzip -d < /tmp/foo > /tmp/bar")
+	vim.cmd("'[,']d _")
+	vim.cmd("setlocal nobin")
+	vim.cmd("r /tmp/bar")
+  vim.cmd("1 d")
+  vim.bo.filetype = "xml"
 end
 
 return M
