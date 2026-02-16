@@ -1,3 +1,17 @@
 if vim.fn.has("nvim-0.7.0") ~= 1 then
-  vim.api.nvim_err_writeln("kmymoney.nvim requires at least nvim-0.7.0")
+	vim.api.nvim_err_writeln("kmymoney.nvim requires at least nvim-0.7.0")
 end
+
+vim.api.nvim_create_autocmd({ "BufReadPre", "FileReadPre" }, {
+	pattern = "*.kmy",
+	callback = function()
+		vim.bo.binary = true
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "BufReadPost", "FileReadPost" }, {
+	pattern = "*.kmy",
+	callback = function(args)
+		require("kmymoney").decompress(args.file)
+	end,
+})
