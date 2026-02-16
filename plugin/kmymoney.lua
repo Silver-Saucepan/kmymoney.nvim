@@ -4,8 +4,8 @@ end
 
 vim.api.nvim_create_autocmd({ "BufReadPre", "FileReadPre" }, {
 	pattern = "*.kmy",
-	callback = function()
-		vim.bo.binary = true
+	callback = function(args)
+		require("kmymoney").set_binary_if_compressed(args.file)
 	end,
 })
 

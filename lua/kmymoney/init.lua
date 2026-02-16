@@ -13,12 +13,18 @@ function M.is_compressed(file_path)
 	return magic_number == "\x1f\x8b"
 end
 
+function M.set_binary_if_compressed(file_path)
+  if M.is_compressed(file_path) then
+    vim.bo.binary = true
+  end
+end
+
 function M.decompress(file_path)
 	if M.is_compressed(file_path) then
 		vim.cmd("silent '[,']!gzip -d")
+    vim.bo.binary = false
+    vim.bo.filetype = "xml"
 	end
-  vim.bo.binary = false
-  vim.bo.filetype = "xml"
 end
 
 return M
