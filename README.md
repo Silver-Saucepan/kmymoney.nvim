@@ -8,3 +8,15 @@ read the uncompressed version and compress it at the next save)
 
 CAUTION: This is my first attempt at a neovim plugin. It seems to work
 but there may be things wrong with it.
+
+## Installation
+
+Install the plugin with your preferred package manager
+
+### [lazy.nvim](https://github.com/folke/lazy.nvim)
+
+```lua
+{ "Silver-Saucepan/kmymoney.nvim" }
+```
+
+### Other package managers are available
