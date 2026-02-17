@@ -19,12 +19,4 @@ function M.set_binary_if_compressed(file_path)
   end
 end
 
-function M.decompress(file_path)
-	if M.is_compressed(file_path) then
-		vim.cmd("silent '[,']!gzip -d")
-    vim.bo.binary = false
-    vim.bo.filetype = "xml"
-	end
-end
-
 return M

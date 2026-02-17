@@ -11,7 +11,11 @@ vim.api.nvim_create_autocmd({ "BufReadPre", "FileReadPre" }, {
 
 vim.api.nvim_create_autocmd({ "BufReadPost", "FileReadPost" }, {
 	pattern = "*.kmy",
-	callback = function(args)
-		require("kmymoney").decompress(args.file)
+	callback = function()
+		if vim.bo.binary then
+			vim.cmd("silent '[,']!gzip -d")
+			vim.bo.binary = false
+			vim.bo.filetype = "xml"
+		end
 	end,
 })
