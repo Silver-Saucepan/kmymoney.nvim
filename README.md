@@ -9,6 +9,10 @@ read the uncompressed version and compress it at the next save)
 CAUTION: This is my first attempt at a neovim plugin. It seems to work
 but there may be things wrong with it.
 
+## Requirements
+
+- gzip
+
 ## Installation
 
 Install the plugin with your preferred package manager
