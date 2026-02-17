@@ -1,7 +1,3 @@
-if vim.fn.has("nvim-0.7.0") ~= 1 then
-	vim.api.nvim_echo({ "kmymoney.nvim requires at least nvim-0.7.0" }, true, { err = true })
-end
-
 vim.api.nvim_create_autocmd({ "BufReadPre", "FileReadPre" }, {
 	pattern = "*.kmy",
 	callback = function(args)
