@@ -3,8 +3,7 @@
 A simple neovim plugin to read KMyMoney '*.kmy' data files regardless of
 whether they're compressed or not.
 
-This plugin does not (re)compress the file when writing (KMyMoney will
-read the uncompressed version and compress it at the next save)
+If the file was compressed, it is recompressed when writing
 
 CAUTION: This is my first attempt at a neovim plugin. It seems to work
 but there may be things wrong with it.
