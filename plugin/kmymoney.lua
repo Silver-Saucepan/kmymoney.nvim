@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufWritePost" }, {
 		if vim.bo.binary then
 			vim.cmd("silent %!gzip -d")
 			vim.bo.binary = false
-			vim.bo.filetype = "xml"
+			vim.cmd("filetype detect")
 			vim.b.compressed = true
 		end
 	end,
