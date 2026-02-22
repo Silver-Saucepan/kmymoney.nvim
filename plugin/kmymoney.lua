@@ -12,7 +12,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufWritePost" }, {
 			vim.cmd("silent %!gzip -d")
 			vim.bo.binary = false
 			vim.bo.filetype = "xml"
-      vim.b.compressed = true
+			vim.b.compressed = true
 		end
 	end,
 })
@@ -20,9 +20,9 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufWritePost" }, {
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	pattern = "*.kmy",
 	callback = function(args)
-    if vim.b.compressed then
+		if vim.b.compressed then
 			vim.bo.binary = true
 			vim.cmd("silent %!gzip")
-    end
+		end
 	end,
 })
